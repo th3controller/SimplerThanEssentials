@@ -1,0 +1,33 @@
+name: SimplerThanEssentials
+version: 1.0
+main: be.th3controller.simplerthanessentials.SimplerThanEssentials
+permissions:
+    ste.*:
+      description: Gives access to all SimplerThanEssentials commands
+      children:
+        ste.gamemode: true
+        ste.time: true
+        ste.tp: true
+    ste.gamemode:
+      description: Allows you to change gamemodes
+    ste.time:
+      description: Allows you to change the time
+    ste.tp:
+      description: Allows you to teleport to someone
+    ste.kick:
+      description: Allows you to kick someone
+commands:
+   gamemode:
+      description: Change gamemodes in-game or from the console
+      usage: /<command>
+      aliases: gm
+   time:
+      description: Changes time in-game or from the console
+      usage: /<command>
+   tp:
+      description: Teleport to another player. If provided a second player it will teleport the first player to them
+      usage: /<command> <player> [target]
+      aliases: teleport
+   kick:
+      description: Kicks a player from a server
+      usage: /<command> <player> [reason]

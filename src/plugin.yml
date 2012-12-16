@@ -16,6 +16,10 @@ permissions:
       description: Allows you to teleport to someone
     ste.kick:
       description: Allows you to kick someone
+    ste.notify:
+      description: Allows a player to broadcast a notification
+    ste.hearnotify:
+      description: Allows a player to hear a notification
 commands:
    gamemode:
       description: Change gamemodes in-game or from the console
@@ -31,3 +35,6 @@ commands:
    kick:
       description: Kicks a player from a server
       usage: /<command> <player> [reason]
+   notify:
+      description: Broadcasts a notification throughout the server
+      usage: /<command> <message>

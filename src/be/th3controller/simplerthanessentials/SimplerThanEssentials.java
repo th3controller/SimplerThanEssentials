@@ -12,6 +12,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import be.th3controller.simplerthanessentials.commands.CmdGamemode;
+import be.th3controller.simplerthanessentials.commands.CmdTime;
 
 public class SimplerThanEssentials extends JavaPlugin{
 	
@@ -29,6 +30,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 	
 	public void getCommands(){
 		getCommand("gamemode", new CmdGamemode());
+		getCommand("time", new CmdTime());
 	}
 	
 	public void getCommand(String command, CommandExecutor commandexecutor){
@@ -36,38 +38,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("time")){
-			if(!(sender instanceof Player)){
-				sender.sendMessage("Time set to TIMEARG in world WORLDARG");
-				return true;
-			}else{
-				if(!((Player)sender).hasPermission("ste.time")){
-					((Player)sender).sendMessage(ChatColor.RED + "Insufficient permissions to do this command!");
-				}else{
-					if((args.length > 1) || (args.length < 1)){
-						sender.sendMessage(ChatColor.RED + "Too many or not enough arguments!");
-						sender.sendMessage(ChatColor.RED + "Usage: /time <day/night>");
-					}
-					else if(args.length == 1){
-						String worldn = ((Player)sender).getWorld().getName().toString();
-						if(args[0].equalsIgnoreCase("day")){
-							((Player)sender).getWorld().setTime(0L);
-							((Player)sender).sendMessage(ChatColor.YELLOW + "Time set to day in: " + ChatColor.RESET + worldn);
-						}
-						else if(args[0].equalsIgnoreCase("night")){
-							((Player)sender).getWorld().setTime(14000L);
-							((Player)sender).sendMessage(ChatColor.YELLOW + "Time set to night in: " + ChatColor.RESET + worldn);
-						}
-						else if((!args[0].equalsIgnoreCase("day")) || (!args[0].equalsIgnoreCase("night"))){
-							sender.sendMessage(ChatColor.RED + "Incorrect arguments!");
-							sender.sendMessage(ChatColor.RED + "Usage: /time <day/night>");
-						}
-					}
-				}
-				return true;
-			}
-		}
-		else if(cmd.getName().equalsIgnoreCase("tp")){
+		if(cmd.getName().equalsIgnoreCase("tp")){
 			
 		}
 		else if(cmd.getName().equalsIgnoreCase("kick")){

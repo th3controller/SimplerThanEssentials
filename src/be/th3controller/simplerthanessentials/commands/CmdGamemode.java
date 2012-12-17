@@ -46,7 +46,6 @@ public class CmdGamemode implements CommandExecutor{
 						((Player)sender).setGameMode(GameMode.SURVIVAL);
 					}
 				}
-				return true;
 			}
 			else if(args.length == 1){
 				if(!((Player)sender).hasPermission("ste.gamemode.other")){
@@ -66,14 +65,12 @@ public class CmdGamemode implements CommandExecutor{
 						}
 					}
 				}
-				return true;
 			}
 			else if(args.length > 1){
 				((Player)sender).sendMessage(ChatColor.RED + "Too many arguments!");
 				((Player)sender).sendMessage(ChatColor.RED + "Usage: /gamemode [Player]");
-				return true;
 			}
+			return true;
 		}
-		return false;
 	}
 }

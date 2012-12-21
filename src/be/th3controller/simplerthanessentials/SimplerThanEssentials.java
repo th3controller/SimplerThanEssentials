@@ -12,6 +12,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import be.th3controller.simplerthanessentials.commands.CmdGamemode;
+import be.th3controller.simplerthanessentials.commands.CmdKick;
 import be.th3controller.simplerthanessentials.commands.CmdTime;
 
 public class SimplerThanEssentials extends JavaPlugin{
@@ -31,6 +32,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 	public void getCommands(){
 		getCommand("gamemode", new CmdGamemode());
 		getCommand("time", new CmdTime());
+		getCommand("kick", new CmdKick());
 	}
 	
 	public void getCommand(String command, CommandExecutor commandexecutor){
@@ -40,69 +42,6 @@ public class SimplerThanEssentials extends JavaPlugin{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(cmd.getName().equalsIgnoreCase("tp")){
 			
-		}
-		else if(cmd.getName().equalsIgnoreCase("kick")){
-			if(!(sender instanceof Player)){
-				if(args.length >= 2){
-					Player other = Bukkit.getServer().getPlayer(args[0]);
-					if(other == null){
-						sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
-					}else{
-						StringBuilder b = new StringBuilder();
-						/* 57 */        for (int i = 1; i < args.length; i++) {
-						/* 58 */          if (i != 1)
-						/* 59 */            b.append(" ");
-						/* 60 */          b.append(args[i]);
-						}
-						other.kickPlayer("You have been kicked. Reason: " + b);
-					}
-				}
-				else if(args.length == 1){
-					Player other = Bukkit.getServer().getPlayer(args[0]);
-					if(other == null){
-						sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
-					}else{
-						other.kickPlayer("You have been kicked. Reason: Undefined");
-					}
-				}
-				else if(args.length < 1){
-					sender.sendMessage(ChatColor.RED + "Incorrect arguments!");
-					sender.sendMessage(ChatColor.RED + "Usage: /kick <Player> [reason]");
-				}
-				return true;
-			}else{
-				if(!((Player)sender).hasPermission("ste.kick")){
-					((Player)sender).sendMessage(ChatColor.RED + "Insufficient permissions to do this command!");
-				}else{
-					if(args.length >= 2){
-						Player other = Bukkit.getServer().getPlayer(args[0]);
-						if(other == null){
-							sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
-						}else{
-							StringBuilder b = new StringBuilder();
-							/* 57 */        for (int i = 1; i < args.length; i++) {
-							/* 58 */          if (i != 1)
-							/* 59 */            b.append(" ");
-							/* 60 */          b.append(args[i]);
-							}
-							other.kickPlayer("You have been kicked. Reason: " + b);
-						}
-					}
-					else if(args.length == 1){
-						Player other = Bukkit.getServer().getPlayer(args[0]);
-						if(other == null){
-							sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
-						}else{
-							other.kickPlayer("You have been kicked. Reason: Undefined");
-						}
-					}
-					else if(args.length < 1){
-						sender.sendMessage(ChatColor.RED + "Incorrect arguments!");
-						sender.sendMessage(ChatColor.RED + "Usage: /kick <Player> [reason]");
-					}
-				}
-				return true;
-			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("notify")){
 			if(!(sender instanceof Player)){

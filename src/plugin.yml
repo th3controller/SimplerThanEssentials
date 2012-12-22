@@ -20,6 +20,8 @@ permissions:
       description: Allows a player to broadcast a notification
     ste.hearnotify:
       description: Allows a player to hear a notification
+    ste.god:
+      description: Allows a player to toggle god mode
 commands:
    gamemode:
       description: Change gamemodes in-game or from the console
@@ -38,3 +40,6 @@ commands:
    notify:
       description: Broadcasts a notification throughout the server
       usage: /<command> <message>
+   god:
+      description: Toggles invincible mode for a player.
+      usage: /<command> <player>

@@ -1,5 +1,6 @@
 package be.th3controller.simplerthanessentials;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -12,6 +13,7 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import be.th3controller.simplerthanessentials.commands.CmdGamemode;
+import be.th3controller.simplerthanessentials.commands.CmdGod;
 import be.th3controller.simplerthanessentials.commands.CmdKick;
 import be.th3controller.simplerthanessentials.commands.CmdTime;
 
@@ -19,6 +21,8 @@ public class SimplerThanEssentials extends JavaPlugin{
 	
 	Logger log = Logger.getLogger("Minecraft");
 	PluginDescriptionFile pdfile;
+	
+	public static ArrayList<Player> godlist = new ArrayList<Player>();
 	
 	public void onEnable(){
 		getServer().getPluginManager().registerEvents(new SimplerThanEssentialsListener(this), this);
@@ -33,6 +37,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 		getCommand("gamemode", new CmdGamemode());
 		getCommand("time", new CmdTime());
 		getCommand("kick", new CmdKick());
+		getCommand("god", new CmdGod());
 	}
 	
 	public void getCommand(String command, CommandExecutor commandexecutor){
@@ -40,10 +45,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-		if(cmd.getName().equalsIgnoreCase("tp")){
-			
-		}
-		else if(cmd.getName().equalsIgnoreCase("notify")){
+		if(cmd.getName().equalsIgnoreCase("notify")){
 			if(!(sender instanceof Player)){
 				if(args.length < 1){
 					sender.sendMessage(ChatColor.RED + "Incorrect arguments!");

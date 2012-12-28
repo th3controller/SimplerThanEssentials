@@ -1,4 +1,6 @@
+#Displays a welcome message. Don't delete the apostrophes
 loginmessage: '&aWelcome to the server! &bEnjoy your stay.'
+#Rules displayed when summmoned by a command
 rules:
 - Do not grief
 - Respect all players

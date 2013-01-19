@@ -22,6 +22,12 @@ permissions:
       description: Allows a player to hear a notification
     ste.god:
       description: Allows a player to toggle god mode
+    ste.chunkreset:
+      description: Allows a player to reset a chunk
+    ste.setspawn:
+      description: Allows a player to set the spawn
+    ste.spawn:
+      description: Allows a player to teleport to spawn
 commands:
    gamemode:
       description: Change gamemodes in-game or from the console
@@ -43,3 +49,12 @@ commands:
    god:
       description: Toggles invincible mode for a player.
       usage: /<command> <player>
+   chunkreset:
+      description: Resets a chunk where your currently standing.
+      usage: /<command>
+   spawn:
+      description: Teleports you to the spawn.
+      usage: /<command>
+   setspawn:
+      description: Sets the spawn point for all players.
+      usage: /<command>

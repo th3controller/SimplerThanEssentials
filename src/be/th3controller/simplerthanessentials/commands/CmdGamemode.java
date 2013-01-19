@@ -8,6 +8,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import be.th3controller.simplerthanessentials.Messages;
+
 public class CmdGamemode implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(!(sender instanceof Player)){
@@ -35,21 +37,22 @@ public class CmdGamemode implements CommandExecutor{
 			}
 			return true;
 		}else{
+			Player player = (Player)sender;
 			if(args.length == 0){
-				if(!((Player)sender).hasPermission("ste.gamemode")){
-					((Player)sender).sendMessage(ChatColor.RED + "Insufficient permissions to do this command!");
+				if(!player.hasPermission("ste.gamemode")){
+					Messages.noPerm(player);
 				}else{
-					if(((Player)sender).getGameMode() == GameMode.SURVIVAL){
-						((Player)sender).setGameMode(GameMode.CREATIVE);
+					if(player.getGameMode() == GameMode.SURVIVAL){
+						player.setGameMode(GameMode.CREATIVE);
 					}
-					else if(((Player)sender).getGameMode() == GameMode.CREATIVE){
-						((Player)sender).setGameMode(GameMode.SURVIVAL);
+					else if(player.getGameMode() == GameMode.CREATIVE){
+						player.setGameMode(GameMode.SURVIVAL);
 					}
 				}
 			}
 			else if(args.length == 1){
-				if(!((Player)sender).hasPermission("ste.gamemode.other")){
-					((Player)sender).sendMessage(ChatColor.RED + "Insufficient permissions to do this command!");
+				if(!player.hasPermission("ste.gamemode.other")){
+					Messages.noPerm(player);
 				}else{
 					Player other = Bukkit.getServer().getPlayer(args[0]);
 					if(other == null){
@@ -57,18 +60,18 @@ public class CmdGamemode implements CommandExecutor{
 					}else{
 						if(other.getGameMode() == GameMode.SURVIVAL){
 							other.setGameMode(GameMode.CREATIVE);
-							((Player)sender).sendMessage(ChatColor.GREEN + "Setting " + ChatColor.RESET + args[0] + ChatColor.GREEN + "'s gamemode to creative!");
+							player.sendMessage(ChatColor.GREEN + "Setting " + ChatColor.RESET + args[0] + ChatColor.GREEN + "'s gamemode to creative!");
 						}
 						else if(other.getGameMode() == GameMode.CREATIVE){
 							other.setGameMode(GameMode.SURVIVAL);
-							((Player)sender).sendMessage(ChatColor.GREEN + "Setting " + ChatColor.RESET + args[0] + ChatColor.GREEN + "'s gamemode to survival!");
+							player.sendMessage(ChatColor.GREEN + "Setting " + ChatColor.RESET + args[0] + ChatColor.GREEN + "'s gamemode to survival!");
 						}
 					}
 				}
 			}
 			else if(args.length > 1){
-				((Player)sender).sendMessage(ChatColor.RED + "Too many arguments!");
-				((Player)sender).sendMessage(ChatColor.RED + "Usage: /gamemode [Player]");
+				player.sendMessage(ChatColor.RED + "Too many arguments!");
+				player.sendMessage(ChatColor.RED + "Usage: /gamemode [Player]");
 			}
 			return true;
 		}

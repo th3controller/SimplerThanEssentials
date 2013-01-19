@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import be.th3controller.simplerthanessentials.Messages;
 import be.th3controller.simplerthanessentials.SimplerThanEssentials;
 
 public class CmdGod implements CommandExecutor {
@@ -37,15 +38,16 @@ public class CmdGod implements CommandExecutor {
 			}
 			return true;
 		}else{
-			if(!((Player)sender).hasPermission("ste.god")){
-				((Player)sender).sendMessage(ChatColor.RED + "Insufficient permissions to do this command!");
+			Player player = (Player)sender;
+			if(!player.hasPermission("ste.god")){
+				Messages.noPerm(player);
 			}else{
 				if(args.length == 0) {
-					if(SimplerThanEssentials.godlist.contains((Player)sender)) {
-						SimplerThanEssentials.godlist.remove((Player)sender);
+					if(SimplerThanEssentials.godlist.contains(player)) {
+						SimplerThanEssentials.godlist.remove(player);
 						sender.sendMessage(ChatColor.GREEN + "God mode disabled");
 					}else{
-						SimplerThanEssentials.godlist.add((Player)sender);
+						SimplerThanEssentials.godlist.add(player);
 						sender.sendMessage(ChatColor.GREEN + "God mode enabled");
 					}
 				}

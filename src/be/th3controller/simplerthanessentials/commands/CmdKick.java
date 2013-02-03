@@ -25,7 +25,7 @@ public class CmdKick implements CommandExecutor {
 						reason = reason + " " + args[i];
 					}
 					other.kickPlayer("You have been kicked. Reason:" + reason);
-					Bukkit.getServer().broadcastMessage(sender.getName()+yel+" banned: "+res+args[0]);
+					Bukkit.getServer().broadcastMessage(sender.getName()+yel+" kicked: "+res+args[0]);
 					Bukkit.getServer().broadcastMessage(yel+"Reason:"+res+reason);
 				}
 			}
@@ -35,7 +35,7 @@ public class CmdKick implements CommandExecutor {
 					sender.sendMessage(red + args[0] + " is not online!");
 				}else{
 					other.kickPlayer("You have been kicked. Reason: Undefined");
-					Bukkit.getServer().broadcastMessage(sender.getName()+yel+" banned: "+res+args[0]);
+					Bukkit.getServer().broadcastMessage(sender.getName()+yel+" kicked: "+res+args[0]);
 					Bukkit.getServer().broadcastMessage(yel+"Reason:" +res+"Undefined");
 				}
 			}
@@ -62,7 +62,7 @@ public class CmdKick implements CommandExecutor {
 							reason = reason + " " + args[i];
 						}
 						other.kickPlayer("You have been kicked. Reason:" + reason);
-						Bukkit.getServer().broadcastMessage(sender.getName()+yel+" banned: "+res+args[0]);
+						Bukkit.getServer().broadcastMessage(sender.getName()+yel+" kicked: "+res+args[0]);
 						Bukkit.getServer().broadcastMessage(yel+"Reason:"+res+reason);
 					}
 				}
@@ -72,7 +72,7 @@ public class CmdKick implements CommandExecutor {
 						sender.sendMessage(red + args[0] + " is not online!");
 					}else{
 						other.kickPlayer("You have been kicked. Reason: Undefined");
-						Bukkit.getServer().broadcastMessage(sender.getName()+yel+" banned: "+res+args[0]);
+						Bukkit.getServer().broadcastMessage(sender.getName()+yel+" kicked: "+res+args[0]);
 						Bukkit.getServer().broadcastMessage(yel+"Reason:" +res+"Undefined");
 					}
 				}

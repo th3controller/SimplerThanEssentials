@@ -24,7 +24,7 @@ public class SimplerThanEssentialsListener implements Listener{
 	public void PlayerDamage(EntityDamageEvent e) {
 		if(e.getEntity() instanceof Player) {
 			Player god = (Player)e.getEntity();
-			if(SimplerThanEssentials.godlist.contains(god)) {
+			if(SimplerThanEssentials.godlist.contains(god.getName())) {
 				e.setCancelled(true);
 			}
 		}

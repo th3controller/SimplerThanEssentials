@@ -25,12 +25,12 @@ public class CmdGod implements CommandExecutor {
 				if(other == null) {
 					sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
 				}else{
-					if(SimplerThanEssentials.godlist.contains(other)) {
-						SimplerThanEssentials.godlist.remove(other);
+					if(SimplerThanEssentials.godlist.contains(other.getName())) {
+						SimplerThanEssentials.godlist.remove(other.getName());
 						sender.sendMessage(ChatColor.GREEN + "God mode disabled for: " + ChatColor.RESET + args[0]);
 						other.sendMessage(ChatColor.GREEN + "God mode disabled");
 					}else{
-						SimplerThanEssentials.godlist.add(other);
+						SimplerThanEssentials.godlist.add(other.getName());
 						sender.sendMessage(ChatColor.GREEN + "God mode enabled for: " + ChatColor.RESET + args[0]);
 						other.sendMessage(ChatColor.GREEN + "God mode enabled");
 					}
@@ -43,11 +43,11 @@ public class CmdGod implements CommandExecutor {
 				Messages.noPerm(player);
 			}else{
 				if(args.length == 0) {
-					if(SimplerThanEssentials.godlist.contains(player)) {
-						SimplerThanEssentials.godlist.remove(player);
+					if(SimplerThanEssentials.godlist.contains(player.getName())) {
+						SimplerThanEssentials.godlist.remove(player.getName());
 						sender.sendMessage(ChatColor.GREEN + "God mode disabled");
 					}else{
-						SimplerThanEssentials.godlist.add(player);
+						SimplerThanEssentials.godlist.add(player.getName());
 						sender.sendMessage(ChatColor.GREEN + "God mode enabled");
 					}
 				}
@@ -60,11 +60,11 @@ public class CmdGod implements CommandExecutor {
 					if(other == null) {
 						sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
 					}else{
-						if(SimplerThanEssentials.godlist.contains(other)) {
-							SimplerThanEssentials.godlist.remove(other);
+						if(SimplerThanEssentials.godlist.contains(other.getName())) {
+							SimplerThanEssentials.godlist.remove(other.getName());
 							sender.sendMessage(ChatColor.GREEN + "God mode disabled for: " + ChatColor.RESET + args[0]);
 						}else{
-							SimplerThanEssentials.godlist.add(other);
+							SimplerThanEssentials.godlist.add(other.getName());
 							sender.sendMessage(ChatColor.GREEN + "God mode enabled for: " + ChatColor.RESET + args[0]);
 						}
 					}

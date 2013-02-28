@@ -1,11 +1,14 @@
 package be.th3controller.simplerthanessentials;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.entity.Player;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,15 +27,26 @@ public class SimplerThanEssentials extends JavaPlugin{
 	Logger log = Logger.getLogger("Minecraft");
 	PluginDescriptionFile pdfile;
 	
-	public static ArrayList<Player> godlist = new ArrayList<Player>();
+	public static ArrayList<String> godlist = new ArrayList<String>();
+	public static FileConfiguration banlist;
 	
 	public void onEnable(){
 		getServer().getPluginManager().registerEvents(new SimplerThanEssentialsListener(this), this);
 		this.pdfile = getDescription();
 		this.log.info("[SimplerThanEssentials] Successfully initiated the plugin!");
 		this.log.info("[SimplerThanEssentials] Running version: "+this.pdfile.getVersion());
+		File banfile = new File("plugins/SimplerThanEssentials", "banned.yml");
+		if(!banfile.exists()) {
+			try {
+				banfile.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		getConfig().options().copyDefaults(true);
 		saveConfig();
+		banlist = YamlConfiguration.loadConfiguration(banfile);
 		getCommands();
 	}
 	public void getCommands(){

@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import be.th3controller.simplerthanessentials.commands.CmdBan;
 import be.th3controller.simplerthanessentials.commands.CmdChunkReset;
 import be.th3controller.simplerthanessentials.commands.CmdGamemode;
 import be.th3controller.simplerthanessentials.commands.CmdGod;
@@ -28,6 +29,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 	PluginDescriptionFile pdfile;
 	
 	public static ArrayList<String> godlist = new ArrayList<String>();
+	private static File banfile;
 	public static FileConfiguration banlist;
 	
 	public void onEnable(){
@@ -35,7 +37,7 @@ public class SimplerThanEssentials extends JavaPlugin{
 		this.pdfile = getDescription();
 		this.log.info("[SimplerThanEssentials] Successfully initiated the plugin!");
 		this.log.info("[SimplerThanEssentials] Running version: "+this.pdfile.getVersion());
-		File banfile = new File("plugins/SimplerThanEssentials", "banned.yml");
+		banfile = new File("plugins/SimplerThanEssentials", "banned.yml");
 		if(!banfile.exists()) {
 			try {
 				banfile.createNewFile();
@@ -50,17 +52,26 @@ public class SimplerThanEssentials extends JavaPlugin{
 		getCommands();
 	}
 	public void getCommands(){
-		getCommand("gamemode", new CmdGamemode());
-		getCommand("time", new CmdTime());
-		getCommand("kick", new CmdKick());
-		getCommand("god", new CmdGod());
-		getCommand("notify", new CmdNotify());
-		getCommand("tp", new CmdTp());
+		getCommand("ban", new CmdBan());
 		getCommand("chunkreset", new CmdChunkReset());
-		getCommand("spawn", new CmdSpawn());
+		getCommand("gamemode", new CmdGamemode());
+		getCommand("god", new CmdGod());
+		getCommand("kick", new CmdKick());
+		getCommand("notify", new CmdNotify());
 		getCommand("setspawn", new CmdSetSpawn());
+		getCommand("spawn", new CmdSpawn());
+		getCommand("time", new CmdTime());
+		getCommand("tp", new CmdTp());
 	}
 	public void getCommand(String command, CommandExecutor commandexecutor){
 		Bukkit.getServer().getPluginCommand(command).setExecutor(commandexecutor);
+	}
+	public static void saveBan() {
+		try {
+			banlist.save(banfile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

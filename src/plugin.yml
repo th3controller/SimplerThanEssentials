@@ -29,13 +29,16 @@ permissions:
     ste.spawn:
       description: Allows a player to teleport to spawn
 commands:
+   ban:
+      description: Banishes the player from the server
+      usage: /<command> <player> [reason]
    gamemode:
       description: Change gamemodes in-game or from the console
       usage: /<command>
       aliases: gm
    time:
       description: Changes time in-game or from the console
-      usage: /<command>
+      usage: /<command> <day/night>
    tp:
       description: Teleport to another player. If provided a second player it will teleport the first player to them
       usage: /<command> <player> [target]

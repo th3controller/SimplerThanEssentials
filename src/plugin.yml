@@ -31,7 +31,7 @@ permissions:
 commands:
    ban:
       description: Banishes the player from the server
-      usage: /<command> <player> [reason]
+      usage: Usage /ban <player> [reason]
    gamemode:
       description: Change gamemodes in-game or from the console
       usage: /<command>

@@ -35,6 +35,9 @@ public class CmdBan implements CommandExecutor {
 					target.kickPlayer("You have been banned, reason: Undefined");
 				}
 			}
+			if(args.length == 0) {
+				return false;
+			}
 			return true;
 		} else {
 			if(sender.hasPermission("ste.ban")) {
@@ -59,6 +62,9 @@ public class CmdBan implements CommandExecutor {
 					if(target != null) {
 						target.kickPlayer("You have been banned, reason: Undefined");
 					}
+				}
+				if(args.length == 0) {
+					return false;
 				}
 			} else {
 				Messages.noPerm((Player)sender);

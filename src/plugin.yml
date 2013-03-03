@@ -34,7 +34,7 @@ commands:
       usage: Usage /ban <player> [reason]
    gamemode:
       description: Change gamemodes in-game or from the console
-      usage: /<command>
+      usage: Usage /<command> [0-2] [player name]
       aliases: gm
    time:
       description: Changes time in-game or from the console

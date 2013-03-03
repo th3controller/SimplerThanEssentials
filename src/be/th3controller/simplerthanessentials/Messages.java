@@ -12,4 +12,7 @@ public class Messages {
 	public static void consoleUse(CommandSender commandsender) {
 		commandsender.sendMessage("You have to be in-game to do this command!");
 	}
+	public static void newGameMode(Player player, String string) {
+		player.sendMessage(ChatColor.GREEN+"Setting "+ChatColor.RESET+player.getName()+ChatColor.GREEN+"'s gamemode to "+string+"!");
+	}
 }

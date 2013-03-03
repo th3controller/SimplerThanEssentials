@@ -1,63 +1,64 @@
 name: SimplerThanEssentials
-version: 1.0
+version: 1.0.0
+author: th3controller
 main: be.th3controller.simplerthanessentials.SimplerThanEssentials
 permissions:
-    ste.*:
-      description: Gives access to all SimplerThanEssentials commands
-      children:
-        ste.gamemode: true
-        ste.time: true
-        ste.tp: true
-    ste.gamemode:
-      description: Allows you to change gamemodes
-    ste.time:
-      description: Allows you to change the time
-    ste.tp:
-      description: Allows you to teleport to someone
-    ste.kick:
-      description: Allows you to kick someone
-    ste.notify:
-      description: Allows a player to broadcast a notification
-    ste.hearnotify:
-      description: Allows a player to hear a notification
-    ste.god:
-      description: Allows a player to toggle god mode
-    ste.chunkreset:
-      description: Allows a player to reset a chunk
-    ste.setspawn:
-      description: Allows a player to set the spawn
-    ste.spawn:
-      description: Allows a player to teleport to spawn
+  ste.*:
+    description: Gives access to all SimplerThanEssentials commands
+    children:
+      ste.gamemode: true
+      ste.time: true
+      ste.tp: true
+  ste.gamemode:
+    description: Allows you to change gamemodes
+  ste.time:
+    description: Allows you to change the time
+  ste.tp:
+    description: Allows you to teleport to someone
+  ste.kick:
+    description: Allows you to kick someone
+  ste.notify:
+    description: Allows a player to broadcast a notification
+  ste.hearnotify:
+    description: Allows a player to hear a notification
+  ste.god:
+    description: Allows a player to toggle god mode
+  ste.chunkreset:
+    description: Allows a player to reset a chunk
+  ste.setspawn:
+    description: Allows a player to set the spawn
+  ste.spawn:
+    description: Allows a player to teleport to spawn
 commands:
-   ban:
-      description: Banishes the player from the server
-      usage: Usage /ban <player> [reason]
-   gamemode:
-      description: Change gamemodes in-game or from the console
-      usage: Usage /<command> [0-2] [player name]
-      aliases: gm
-   time:
-      description: Changes time in-game or from the console
-      usage: /<command> <day/night>
-   tp:
-      description: Teleport to another player. If provided a second player it will teleport the first player to them
-      usage: /<command> <player> [target]
-      aliases: teleport
-   kick:
-      description: Kicks a player from a server
-      usage: /<command> <player> [reason]
-   notify:
-      description: Broadcasts a notification throughout the server
-      usage: /<command> <message>
-   god:
-      description: Toggles invincible mode for a player.
-      usage: /<command> <player>
-   chunkreset:
-      description: Resets a chunk where your currently standing.
-      usage: /<command>
-   spawn:
-      description: Teleports you to the spawn.
-      usage: /<command>
-   setspawn:
-      description: Sets the spawn point for all players.
-      usage: /<command>
+  ban:
+    description: Banishes the player from the server
+    usage: Usage /ban <player> [reason]
+  gamemode:
+    description: Change gamemodes in-game or from the console
+    usage: Usage /<command> [0-2] [player name]
+    aliases: gm
+  time:
+    description: Changes time in-game or from the console
+    usage: /<command> <day/night>
+  tp:
+    description: Teleport to another player. If provided a second player it will teleport the first player to them
+    usage: /<command> <player> [target]
+    aliases: teleport
+  kick:
+    description: Kicks a player from a server
+    usage: /<command> <player> [reason]
+  notify:
+    description: Broadcasts a notification throughout the server
+    usage: /<command> <message>
+  god:
+    description: Toggles invincible mode for a player.
+    usage: /<command> <player>
+  chunkreset:
+    description: Resets a chunk where your currently standing.
+    usage: /<command>
+  spawn:
+    description: Teleports you to the spawn.
+    usage: /<command>
+  setspawn:
+    description: Sets the spawn point for all players.
+    usage: /<command>

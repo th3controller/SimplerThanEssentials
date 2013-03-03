@@ -36,7 +36,7 @@ public class CmdGamemode implements CommandExecutor {
 				}
 			}
 			return true;
-		}else{
+		} else {
 			Player player = (Player)sender;
 			if(args.length == 2) {
 				if(player.hasPermission("ste.gamemode.other")) {
@@ -64,31 +64,31 @@ public class CmdGamemode implements CommandExecutor {
 			if(args.length == 1) {
 				if(player.hasPermission("ste.gamemode")) {
 					if(args[0].equalsIgnoreCase("survival") || args[0].equalsIgnoreCase("0")) {
-						player.setGameMode(GameMode.SURVIVAL);
 						Messages.newGameMode(player, "SURVIVAL");
+						player.setGameMode(GameMode.SURVIVAL);
 					}
 					if(args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1")) {
-						player.setGameMode(GameMode.CREATIVE);
 						Messages.newGameMode(player, "CREATIVE");
+						player.setGameMode(GameMode.CREATIVE);
 					}
 					if(args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2")) {
-						player.setGameMode(GameMode.ADVENTURE);
 						Messages.newGameMode(player, "ADVENTURE");
+						player.setGameMode(GameMode.ADVENTURE);
 					}
 				} else {
 					Messages.noPerm(player);
 				}
 			}
 			if(args.length == 0){
-				if(player.hasPermission("ste.gamemode")){
+				if(!player.hasPermission("ste.gamemode")){
+					Messages.noPerm(player);
+				} else {
 					if(player.getGameMode() == GameMode.SURVIVAL){
 						player.setGameMode(GameMode.CREATIVE);
 					}
-					if(player.getGameMode() == GameMode.CREATIVE){
+					else if(player.getGameMode() == GameMode.CREATIVE){
 						player.setGameMode(GameMode.SURVIVAL);
 					}
-				} else {
-					Messages.noPerm(player);
 				}
 			}
 			if(args.length > 2){

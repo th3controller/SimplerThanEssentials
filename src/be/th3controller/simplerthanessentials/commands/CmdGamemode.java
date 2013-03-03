@@ -48,11 +48,11 @@ public class CmdGamemode implements CommandExecutor {
 							target.setGameMode(GameMode.SURVIVAL);
 							Messages.newGameMode(player, "SURVIVAL");
 						}
-						if(args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1")) {
+						else if(args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1")) {
 							target.setGameMode(GameMode.CREATIVE);
 							Messages.newGameMode(player, "CREATIVE");
 						}
-						if(args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2")) {
+						else if(args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2")) {
 							target.setGameMode(GameMode.ADVENTURE);
 							Messages.newGameMode(player, "ADVENTURE");
 						}
@@ -67,11 +67,11 @@ public class CmdGamemode implements CommandExecutor {
 						Messages.newGameMode(player, "SURVIVAL");
 						player.setGameMode(GameMode.SURVIVAL);
 					}
-					if(args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1")) {
+					else if(args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("1")) {
 						Messages.newGameMode(player, "CREATIVE");
 						player.setGameMode(GameMode.CREATIVE);
 					}
-					if(args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2")) {
+					else if(args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("2")) {
 						Messages.newGameMode(player, "ADVENTURE");
 						player.setGameMode(GameMode.ADVENTURE);
 					}
